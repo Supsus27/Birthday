@@ -10,29 +10,11 @@ function loop(){ctx.clearRect(0,0,innerWidth,innerHeight);particles=particles.fi
 $(".next").addEventListener("click",()=>burst(),{once:true});
 $("#giftBtn").addEventListener("click",e=>{burst(innerWidth/2,innerHeight*.45,180);$("#giftBtn").style.display="none";$("#giftMessage").classList.remove("hidden")});
 $$(".photos input").forEach(input=>input.addEventListener("change",e=>{const file=e.target.files[0],label=e.target.parentElement;if(!file)return;const img=label.querySelector("img");img.src=URL.createObjectURL(file);label.classList.add("has-photo")}));
-let musicOn = false;
-
-// 🎵 YOUR MUSIC FILE
-song.src = "Music/song.opus";
-
-musicBtn.addEventListener("click", async () => {
-    try {
-        if (musicOn) {
-            song.pause();
-            musicOn = false;
-            musicBtn.querySelector("span").textContent = "🔇";
-        } else {
-            await song.play();
-            musicOn = true;
-            musicBtn.querySelector("span").textContent = "🔊";
-        }
-    } catch (error) {
-        console.error("Music playback failed:", error);
-        alert("Music couldn't be played. Check that the music file exists.");
-    }
-});
+const song=$("#song"),musicBtn=$("#musicBtn"); let musicOn=false;
+musicBtn.addEventListener("click",()=>{if(!song.src){alert("Add your music file first: put it in the site folder and set the filename in script.js.");return} if(musicOn){song.pause();musicOn=false;musicBtn.querySelector("span").textContent="🔇"}else{song.play();musicOn=true;musicBtn.querySelector("span").textContent="🔊"}});
+/* PERSONALIZE HERE */
 const BIRTHDAY_NAME="MANASI";
-/* Optional music: song.src="your-song.mp3"; */
+song.src="Christina Perri - A Thousand Years [NZGHXy1IAHM].opus"; 
 document.title=`For ${BIRTHDAY_NAME} ❤️`;
 $$(".reveal h2").forEach(h=>h.innerHTML=h.innerHTML.replace("Happy","Happy"));
 ;
