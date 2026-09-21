@@ -14,7 +14,7 @@ const song=$("#song"),musicBtn=$("#musicBtn"); let musicOn=false;
 musicBtn.addEventListener("click",()=>{if(!song.src){alert("Add your music file first: put it in the site folder and set the filename in script.js.");return} if(musicOn){song.pause();musicOn=false;musicBtn.querySelector("span").textContent="🔇"}else{song.play();musicOn=true;musicBtn.querySelector("span").textContent="🔊"}});
 /* PERSONALIZE HERE */
 const BIRTHDAY_NAME="MANASI";
-song.src="Christina Perri - A Thousand Years [NZGHXy1IAHM].opus"; 
+song.src="Song.mp3"; 
 document.title=`For ${BIRTHDAY_NAME} ❤️`;
 $$(".reveal h2").forEach(h=>h.innerHTML=h.innerHTML.replace("Happy","Happy"));
 ;
