@@ -16,6 +16,6 @@ musicBtn.addEventListener("click",()=>{if(!song.src){alert("Add your music file 
 const BIRTHDAY_NAME="MANASI";
 /* Optional music: song.src="your-song.mp3"; */
 document.title=`For ${BIRTHDAY_NAME} ❤️`;
-song.src="Music/song.src.opus"
+song.src="Music/song.src.opus";
 $$(".reveal h2").forEach(h=>h.innerHTML=h.innerHTML.replace("Happy","Happy"));
 ;
